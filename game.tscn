@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game.gd" type="Script" id=4]
+[ext_resource path="res://camera_horizontal.gd" type="Script" id=5]
+
+[node name="game" type="Spatial"]
+script = ExtResource( 4 )
+pathToCamera = NodePath("camera_horizontal/camera_vertical/Camera")
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.81697, 0, -0.8485 )
+pathToCamera = NodePath("../camera_horizontal/camera_vertical/Camera")
+
+[node name="camera_horizontal" type="Spatial" parent="."]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 10, 7.3, 2 )
+script = ExtResource( 5 )
+pathToPlayer = NodePath("../player")
+
+[node name="camera_vertical" type="Spatial" parent="camera_horizontal"]
+transform = Transform( 1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="camera_horizontal/camera_vertical"]
+transform = Transform( 1, 0, 0, 0, 1, 2.68221e-07, 0, 0, 1, 0, 0, 0 )
+fov = 78.6
+size = 7.0
+far = 207.5
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.954089, -0.141439, 0.264025, -0.149762, 0.538122, 0.829456, -0.259395, -0.830915, 0.492234, -2.13893, 28.4791, 9.9618 )
+shadow_enabled = true
+
+[node name="wall" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3 )
+
+[node name="ground" parent="." instance=ExtResource( 2 )]
