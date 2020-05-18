@@ -29,6 +29,14 @@ func getMouseClick3d(data: InputEventMouseButton) -> Dictionary:
 	var result = space_state.intersect_ray(from, to, [self])
 	return result
 
+func get_vector_to_target() -> Vector3:
+	var look_at_target = Vector3.ZERO
+	look_at_target.x = target.x
+	look_at_target.y = translation.y
+	look_at_target.z = target.z
+	var vector_to_target =  (look_at_target - translation)
+	return vector_to_target
+
 func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton:
@@ -37,7 +45,10 @@ func _input(event: InputEvent) -> void:
 			var result = getMouseClick3d(data)
 			target.x = result.position.x
 			target.z = result.position.z
-			pass
+			if velocity.length() <= 0.2:
+				var prepared_velocity = -transform.basis.z.normalized() * speed
+				velocity.x = prepared_velocity.x
+				velocity.z = prepared_velocity.z
 		if data.pressed and data.button_index == 1:
 			var result = getMouseClick3d(data)
 			if result:
@@ -59,16 +70,13 @@ func _input(event: InputEvent) -> void:
 		pass
 
 
+
 func _physics_process(delta: float) -> void:
 	timer += delta
 	if timer > 10:
 		timer = 0
 	velocity.y -= 9.8 * delta
-	var look_at_target = Vector3.ZERO
-	look_at_target.x = target.x
-	look_at_target.y = translation.y
-	look_at_target.z = target.z
-	var vector_to_target =  (look_at_target - translation)
+	var vector_to_target = get_vector_to_target()
 	if( vector_to_target.length() > .2):
 		
 		if is_on_floor():
