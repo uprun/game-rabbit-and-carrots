@@ -12,6 +12,8 @@ var target: Vector3
 
 export(NodePath) var pathToCamera
 onready var BULLET = preload("res://fire-cube.tscn")
+onready var paw_prints = preload("res://paw-prints.tscn")
+var timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,7 +35,8 @@ func _input(event: InputEvent) -> void:
 		var data = (event as InputEventMouseButton)
 		if data.pressed and data.button_index == 2:
 			var result = getMouseClick3d(data)
-			target = result.position
+			target.x = result.position.x
+			target.z = result.position.z
 			pass
 		if data.pressed and data.button_index == 1:
 			var result = getMouseClick3d(data)
@@ -57,13 +60,36 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	timer += delta
+	if timer > 10:
+		timer = 0
 	velocity.y -= 9.8 * delta
-	var vector_to_target =  (target - translation)
+	var look_at_target = Vector3.ZERO
+	look_at_target.x = target.x
+	look_at_target.y = translation.y
+	look_at_target.z = target.z
+	var vector_to_target =  (look_at_target - translation)
 	if( vector_to_target.length() > .2):
 		
+		if is_on_floor():
+			print("jump", timer)
+			velocity.y = 5
+			var paw_prints_instance = paw_prints.instance()
+			var spell_caster_global_transform = global_transform
+			paw_prints_instance.transform = spell_caster_global_transform
+			get_node("/root/game").add_child(paw_prints_instance)
 		
 		var target_vector = vector_to_target.normalized()
 		var new_direction = (target_vector * speed * 5 * delta + velocity).normalized()
 		velocity = new_direction * speed
-		look_at(target, Vector3.UP)
-		move_and_slide(velocity)
+		var direction_look_at = translation + velocity
+		direction_look_at.y = translation.y
+		
+		look_at(direction_look_at, Vector3.UP)
+		var velocity_after = move_and_slide(velocity, Vector3.UP)
+		velocity_after.y = velocity.y
+		velocity = velocity_after
+	else:
+		var new_velocity = Vector3.ZERO
+		new_velocity.y = velocity.y
+		velocity = move_and_slide(new_velocity, Vector3.UP)

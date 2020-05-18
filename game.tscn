@@ -1,21 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game.gd" type="Script" id=4]
 [ext_resource path="res://camera_horizontal.gd" type="Script" id=5]
+[ext_resource path="res://ground2.tscn" type="PackedScene" id=6]
 
 [node name="game" type="Spatial"]
 script = ExtResource( 4 )
 pathToCamera = NodePath("camera_horizontal/camera_vertical/Camera")
 
 [node name="player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.81697, 0, -0.8485 )
 pathToCamera = NodePath("../camera_horizontal/camera_vertical/Camera")
 
 [node name="camera_horizontal" type="Spatial" parent="."]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 10, 7.3, 2 )
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 1, 5, 1 )
 script = ExtResource( 5 )
 pathToPlayer = NodePath("../player")
 
@@ -29,10 +29,14 @@ size = 7.0
 far = 207.5
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.954089, -0.141439, 0.264025, -0.149762, 0.538122, 0.829456, -0.259395, -0.830915, 0.492234, -2.13893, 28.4791, 9.9618 )
+transform = Transform( 0.948154, -0.198093, 0.24852, -0.0892968, 0.584422, 0.806522, -0.305007, -0.786899, 0.536433, -2.13893, 28.4791, 9.9618 )
 shadow_enabled = true
 
 [node name="wall" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3 )
 
 [node name="ground" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="ground2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0 )

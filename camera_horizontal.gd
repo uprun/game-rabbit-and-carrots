@@ -14,4 +14,6 @@ func _ready() -> void:
 	initial_offset = get_node(pathToPlayer).translation - initial_translation
 
 func _physics_process(delta: float) -> void:
-	translation = get_node(pathToPlayer).translation - initial_offset
+	var offset = get_node(pathToPlayer).translation - initial_offset
+	translation.x = offset.x
+	translation.z = offset.z

@@ -24,6 +24,7 @@ ao_light_affect = 0.0
 ao_texture = ExtResource( 1 )
 ao_on_uv2 = false
 ao_texture_channel = 0
+uv1_scale = Vector3( 0.3, 0.3, 0.3 )
 uv1_triplanar = true
 
 [sub_resource type="CubeMesh" id=3]
