@@ -2,12 +2,12 @@
 
 [ext_resource path="res://vfx-explosion.gd" type="Script" id=1]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.27707, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0, 0.203125, 1, 1, 1, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.427273 ), 0.0, 0.0, 0, 0 ]
@@ -15,7 +15,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.427273 ), 0.0, 0.0, 0, 
 [sub_resource type="CurveTexture" id=4]
 curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 1
 emission_sphere_radius = 0.2
 direction = Vector3( 0, 1, 0 )
@@ -27,13 +27,13 @@ radial_accel = 2.27
 angle = 114.5
 scale_random = 0.68
 scale_curve = SubResource( 4 )
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 2 )
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=6]
 vertex_color_use_as_albedo = true
 
-[sub_resource type="CubeMesh" id=2]
-material = SubResource( 7 )
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 6 )
 size = Vector3( 0.05, 0.05, 0.05 )
 
 [node name="vfx-explosion" type="Spatial"]
@@ -45,5 +45,5 @@ lifetime = 0.43
 explosiveness = 1.0
 visibility_aabb = AABB( -7, -8, -8, 14, 16, 16 )
 local_coords = false
-process_material = SubResource( 1 )
-draw_pass_1 = SubResource( 2 )
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )

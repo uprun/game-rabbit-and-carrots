@@ -1,11 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://wall.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://carrot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game.gd" type="Script" id=4]
 [ext_resource path="res://camera_horizontal.gd" type="Script" id=5]
 [ext_resource path="res://ground2.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://fonts/8-bit-operator/8bitOperatorPlus8-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+outline_color = Color( 0.141176, 0.0352941, 0.0352941, 1 )
+font_data = SubResource( 2 )
 
 [node name="game" type="Spatial"]
 script = ExtResource( 4 )
@@ -13,6 +22,7 @@ pathToCamera = NodePath("camera_horizontal/camera_vertical/Camera")
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 pathToCamera = NodePath("../camera_horizontal/camera_vertical/Camera")
+labelPath = NodePath("../Label")
 
 [node name="camera_horizontal" type="Spatial" parent="."]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 1, 5, 1 )
@@ -32,11 +42,76 @@ far = 207.5
 transform = Transform( 0.948154, -0.198093, 0.24852, -0.0892968, 0.584422, 0.806522, -0.305007, -0.786899, 0.536433, -2.13893, 28.4791, 9.9618 )
 shadow_enabled = true
 
-[node name="wall" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3 )
-
-[node name="ground" parent="." instance=ExtResource( 2 )]
-visible = false
-
 [node name="ground2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0 )
+
+[node name="carrot" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22624, 0, -7.10884 )
+
+[node name="carrot2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -5 )
+
+[node name="carrot3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.43861, 0, -2.43793 )
+
+[node name="carrot6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.561385, 0, -2.43793 )
+
+[node name="carrot7" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56139, 0, -2.43793 )
+
+[node name="carrot8" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30734, 0, -1.32656 )
+
+[node name="carrot9" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00621, 0, 4.65178 )
+
+[node name="carrot14" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.697069, 0, 2.13567 )
+
+[node name="carrot15" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98374, -4.76837e-07, -0.220073 )
+
+[node name="carrot16" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.08714, -4.76837e-07, 0.451068 )
+
+[node name="carrot17" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27626, -4.76837e-07, 5.947 )
+
+[node name="carrot18" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27626, -4.76837e-07, 2.947 )
+
+[node name="carrot19" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64577, -4.76837e-07, -6.41832 )
+
+[node name="carrot11" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15238, 0, 2.12371 )
+
+[node name="carrot12" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85564, 0, 4.81844 )
+
+[node name="carrot13" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55934, 0, 6.38113 )
+
+[node name="carrot10" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54476, 0, 3.11766 )
+
+[node name="carrot4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17882, 0, 6.07811 )
+
+[node name="carrot5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0518842, 0, 8.41762 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.164706, 0.12549, 0.0980392, 1 )
+material = SubResource( 1 )
+margin_left = 49.0
+margin_top = 28.0
+margin_right = 174.0
+margin_bottom = 80.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 3 )
+text = "carrots 0/25"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -2,7 +2,7 @@ extends KinematicBody
 
 onready var vfx_explosion = preload("res://vfx-explosion.tscn")
 
-var speed = 16
+var speed = 7
 var rotation_speed = 90
 var moveDirection = Vector3(0, 0, 1)
 var initial_rotation: Vector3
@@ -29,7 +29,10 @@ func _physics_process(delta: float) -> void:
 	#velocity.y -= 19.8 * delta
 	
 	if target:
-		var target_vector = (target - translation).normalized()
+		var to_target_vector = target - translation
+		var target_vector = (to_target_vector).normalized()
+		if to_target_vector.length() < 0.5:
+			maxTime = 0.1
 		var new_direction = (target_vector * speed * 5 * delta + velocity).normalized()
 		
 		velocity = new_direction * speed
