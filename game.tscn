@@ -12,7 +12,7 @@
 font_path = "res://fonts/8-bit-operator/8bitOperatorPlus8-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=3]
-size = 25
+size = 45
 outline_color = Color( 0.141176, 0.0352941, 0.0352941, 1 )
 font_data = SubResource( 2 )
 
