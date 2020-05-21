@@ -4,13 +4,28 @@ extends Spatial
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
-onready var BULLET = preload("res://aim-box.tscn")
+onready var BULLET = preload("res://fire-cube.tscn")
 
 export(NodePath) var pathToCamera
 
+
+# Called when the node enters the scene tree for the first time.
+func generateFireworks() -> void:
+	var bullet = BULLET.instance()
+	var spell_caster_global_transform = $"fireworksCaster".global_transform
+	print(spell_caster_global_transform.basis.z)
+	bullet.transform = spell_caster_global_transform
+	var translation = $"fireworksCaster".translation
+	var target = Vector3.ZERO
+	target.x  = translation.x + rand_range(-0.5, 0.5)
+	target.z  = translation.z + rand_range(-0.5, 0.5)
+	target.y  = translation.y + rand_range(2, 3)
+	bullet.define_target(target)
+	get_node("/root/game").add_child(bullet)
+var fireworksReady = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	generateFireworks()
 
 
 func _input(event: InputEvent) -> void:
@@ -40,5 +55,6 @@ func _input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	pass
+	if fireworksReady:
+		fireworksReady = false
+		generateFireworks()

@@ -19,10 +19,6 @@ onready var paw_prints = preload("res://paw-prints.tscn")
 var timer = 0
 var winFireforksCount = 4
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	target = translation
-	
-
 func generateFireworks() -> void:
 	var bullet = BULLET.instance()
 	var spell_caster_global_transform = $"fireworksCaster".global_transform
@@ -34,6 +30,11 @@ func generateFireworks() -> void:
 	target.y  = translation.y + rand_range(2, 3)
 	bullet.define_target(target)
 	get_node("/root/game").add_child(bullet)
+	
+func _ready() -> void:
+	target = translation
+
+
 
 func addCarrot() -> void:
 	generateFireworks()
