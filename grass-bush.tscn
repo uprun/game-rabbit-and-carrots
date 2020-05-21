@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.341176, 0.945098, 0.0666667, 1 )
+
+[sub_resource type="PrismMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 0.1, 0.3, 0.025 )
+
+[node name="grass-bush" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.991028, -0.113845, -0.0700267, 0.133658, 0.844121, 0.519226, 0, -0.523926, 0.851763, -0.0480184, 0.150186, -0.0558305 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( -0.256497, 0.535539, -0.804616, 0.133658, 0.844121, 0.519226, 0.957259, 0.0256367, -0.288093, 0.0777023, 0.150186, 0.10691 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( -0.495514, -0.396811, 0.772662, 0.133658, 0.844121, 0.519226, -0.858255, 0.360556, -0.365237, -0.162906, 0.150186, 0.135574 )
+mesh = SubResource( 2 )
+material/0 = null
