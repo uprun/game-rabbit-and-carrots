@@ -70,34 +70,32 @@ func get_vector_to_target() -> Vector3:
 	return vector_to_target
 
 func _input(event: InputEvent) -> void:
-	
+	var shared_vars = get_node("/root/SharedVariables")
 	if event is InputEventMouseButton:
-		var data = (event as InputEventMouseButton)
-		if data.pressed and data.button_index == 1:
-			var result = getMouseClick3d(data)
-			if result:
-				target.x = result.position.x
-				target.z = result.position.z
-				if velocity.length() <= 0.2:
-					var prepared_velocity = -transform.basis.z.normalized() * speed
-					velocity.x = prepared_velocity.x
-					velocity.z = prepared_velocity.z
-		if data.pressed and data.button_index == 2:
-			var result = getMouseClick3d(data)
-			if result:
-				pass
-#				var bullet = BULLET.instance()
-#
-#				var spell_caster_global_transform = $"staff/spell-caster".global_transform
-#				print(spell_caster_global_transform.basis.z)
-#				bullet.transform = spell_caster_global_transform
-#				bullet.define_target(result.position)
-#				get_node("/root/game").add_child(bullet)
-			else:
-				print('no hit')
-			
-			if true:
-				pass
+		if not shared_vars.isMenuOpen:
+			var data = (event as InputEventMouseButton)
+			if data.pressed and data.button_index == 1:
+				var result = getMouseClick3d(data)
+				if result:
+					target.x = result.position.x
+					target.z = result.position.z
+					if velocity.length() <= 0.2:
+						var prepared_velocity = -transform.basis.z.normalized() * speed
+						velocity.x = prepared_velocity.x
+						velocity.z = prepared_velocity.z
+			if data.pressed and data.button_index == 2:
+				var result = getMouseClick3d(data)
+				if result:
+					pass
+	#				var bullet = BULLET.instance()
+	#
+	#				var spell_caster_global_transform = $"staff/spell-caster".global_transform
+	#				print(spell_caster_global_transform.basis.z)
+	#				bullet.transform = spell_caster_global_transform
+	#				bullet.define_target(result.position)
+	#				get_node("/root/game").add_child(bullet)
+				else:
+					print('no hit')
 	if event is InputEventKey and event.pressed:
 		#print(event.scancode,'-', event.unicode)
 		pass

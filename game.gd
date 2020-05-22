@@ -50,6 +50,16 @@ func _input(event: InputEvent) -> void:
 		if true:
 			pass
 	if event is InputEventKey and event.pressed:
+		if Input.is_key_pressed(KEY_ESCAPE):
+			var shared_vars = get_node("/root/SharedVariables")
+			if shared_vars.isMenuOpen:
+				$"Button-re-start".hide()
+				$camera_horizontal/camera_vertical/Camera.current = true
+				shared_vars.isMenuOpen = false
+			else:
+				$"Button-re-start".show()
+				$CameraStart.current = true
+				shared_vars.isMenuOpen = true
 		#print(event.scancode,'-', event.unicode)
 		pass
 
@@ -58,3 +68,5 @@ func _process(delta: float) -> void:
 	if fireworksReady:
 		fireworksReady = false
 		generateFireworks()
+		
+	
