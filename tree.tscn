@@ -1,0 +1,185 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.835294, 0.458824, 0.0156863, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.501961, 0.92549, 0.0392157, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.945098, 0.0509804, 0.0509804, 1 )
+
+[node name="tree" type="Spatial"]
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+width = 0.119
+depth = 0.16
+material = SubResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 0.516399, 0.856348, 0, -0.856348, 0.516399, 0, 0, 0, 1, 0.468406, 2.25982, 0 )
+width = 0.082
+height = 1.1334
+depth = 0.128
+material = SubResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 0.270025, 0.447785, 0.852394, -0.856348, 0.516399, 0, -0.440175, -0.729946, 0.5229, 0.180543, 2.06296, -0.424207 )
+width = 0.082
+height = 1.1334
+depth = 0.128
+material = SubResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="."]
+transform = Transform( -0.375393, -0.731387, 0.569345, -0.879881, 0.4743, 0.0291479, -0.291359, -0.490014, -0.821582, -0.430614, 2.05363, -0.203125 )
+width = 0.082
+height = 1.1334
+depth = 0.128
+material = SubResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="."]
+transform = Transform( -0.196958, -0.308184, -0.930715, -0.760891, 0.646702, -0.0531198, 0.618266, 0.69771, -0.361868, -0.215904, 1.92672, 0.416084 )
+width = 0.082
+height = 1.1334
+depth = 0.128
+material = SubResource( 1 )
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.569102, 2.47032, -0.240731 )
+radius = 0.567
+smooth_faces = false
+material = SubResource( 2 )
+
+[node name="CSGSphere2" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488141, 2.27525, 0.550698 )
+radius = 0.567
+smooth_faces = false
+material = SubResource( 2 )
+
+[node name="CSGSphere3" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.645553, 2.45163, -0.490119 )
+radius = 0.567
+smooth_faces = false
+material = SubResource( 2 )
+
+[node name="CSGSphere4" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0144846, 2.45163, -0.788994 )
+radius = 0.567
+smooth_faces = false
+material = SubResource( 2 )
+
+[node name="apple" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142775, 2.47708, -1.35155 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple21" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.503725, 2.64018, -0.973745 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple13" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142775, 2.97208, -0.708886 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple14" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.613489, 2.97208, -0.328361 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple15" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468159, 2.7928, 0.334198 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple16" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.251041, 2.90397, -0.207567 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple2" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14872, -1.28389 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple12" type="CSGSphere" parent="."]
+transform = Transform( -0.430574, 0, 0.902555, 0.502258, 0.830858, 0.239608, -0.749895, 0.556484, -0.357746, -0.829448, 2.96073, -0.679377 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple11" type="CSGSphere" parent="."]
+transform = Transform( -0.430574, 0, 0.902555, 0.502258, 0.830858, 0.239608, -0.749895, 0.556484, -0.357746, -0.829859, 2.76322, -0.930682 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple4" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.552794, 2.47708, 1.10154 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple23" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06982, 2.47708, 0.615379 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple3" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.410019, 2.14872, 1.10898 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple20" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744592, 2.14872, 0.173069 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple18" type="CSGSphere" parent="."]
+transform = Transform( 0.68442, 0, -0.729088, 0, 1, 0, 0.729088, 0, 0.68442, -1.06885, 2.60855, -0.215743 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple17" type="CSGSphere" parent="."]
+transform = Transform( 0.68442, 0, -0.729088, 0, 1, 0, 0.729088, 0, 0.68442, -0.976558, 2.28019, -0.106552 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple22" type="CSGSphere" parent="."]
+transform = Transform( 0.68442, 0, -0.729088, 0, 1, 0, 0.729088, 0, 0.68442, -0.976558, 2.28019, -0.87323 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple6" type="CSGSphere" parent="."]
+transform = Transform( -0.0936914, 0, -0.995601, 0.203835, 0.978817, -0.0191819, 0.974512, -0.204735, -0.0917068, -0.0752667, 2.66559, 0.518635 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple5" type="CSGSphere" parent="."]
+transform = Transform( -0.0936914, 0, -0.995601, 0.203835, 0.978817, -0.0191819, 0.974512, -0.204735, -0.0917068, -0.116436, 2.37199, 0.965047 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple19" type="CSGSphere" parent="."]
+transform = Transform( -0.0936914, 0, -0.995601, 0.203835, 0.978817, -0.0191819, 0.974512, -0.204735, -0.0917068, 1.03817, 2.37199, 0.0291318 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple10" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.338229, 0.941064, 0, -0.941064, 0.338229, 0.672717, 3.03014, -0.257834 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple9" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.338229, 0.941064, 0, -0.941064, 0.338229, 0.738036, 2.89918, 0.0536923 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple8" type="CSGSphere" parent="."]
+transform = Transform( -0.0936914, 0, -0.995601, 0.986021, 0.138395, -0.0927898, 0.137786, -0.990377, -0.0129664, 0.96464, 2.51844, -0.632391 )
+radius = 0.043
+material = SubResource( 3 )
+
+[node name="apple7" type="CSGSphere" parent="."]
+transform = Transform( -0.0936914, 0, -0.995601, 0.986021, 0.138395, -0.0927898, 0.137786, -0.990377, -0.0129664, 1.00606, 2.83924, -0.205105 )
+radius = 0.043
+material = SubResource( 3 )

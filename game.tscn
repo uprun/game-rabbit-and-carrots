@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://carrot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://grass-bush.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://game.gd" type="Script" id=4]
 [ext_resource path="res://camera_horizontal.gd" type="Script" id=5]
 [ext_resource path="res://ground2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tree.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -226,3 +227,15 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 1.76648
 visible = false
 mesh = SubResource( 4 )
 material/0 = null
+
+[node name="tree" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.180367, 0.00388646, 4.95063 )
+
+[node name="tree2" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.886519, 0, 0.462692, 0, 1, 0, -0.462692, 0, -0.886519, 3.47742, 0.00388741, 3.9353 )
+
+[node name="tree3" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.964594, 0, 0.263739, 0, 1, 0, -0.263739, 0, 0.964594, 3.97129, 0.00388741, -4.4977 )
+
+[node name="tree4" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.471412, 0, 0.881913, 0, 1, 0, -0.881913, 0, -0.471412, -3.71402, 0.00388837, -3.54909 )
